@@ -15,6 +15,13 @@ inline fun <reified T : RealmObject> findAllFromDb(): List<T> {
     }
 }
 
+inline fun <reified T : RealmObject> findFirstFromDB(): T? {
+    getDefaultRealm().use { realm ->
+        val item: T? = realm.where(T::class.java).findFirst()
+        return if (item !== null && RealmObject.isValid(item)) realm.copyFromRealm(item) else null
+    }
+}
+
 fun getDefaultRealm(): Realm = Realm.getDefaultInstance()
 
 fun Realm.transaction(realm: (Realm) -> Unit) = use { executeTransaction { realm(this) } }

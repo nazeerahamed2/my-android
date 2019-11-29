@@ -44,13 +44,10 @@ class ListAdapter(context: Context, var activitiesList: MutableList<ActivitiesDb
                     uiIvIcon.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue))
                 }
             }
-            if (activityItem.name == context.getString(R.string.str_name_hydration)) {
-                activityItem.date.ifNotNull { date ->
-                    val timeForWaterInTake: Long = date.toLong() + (60*60*1000)
-                    if (System.currentTimeMillis() > timeForWaterInTake)
+            if (getReminderTimeFromDb() != 0.toLong()) {
+                    if (System.currentTimeMillis() > getReminderTimeFromDb())
                         showReminderDialog(context)
                 }
-            }
         }
     }
 

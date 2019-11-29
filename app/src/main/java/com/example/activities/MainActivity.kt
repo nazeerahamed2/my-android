@@ -1,11 +1,10 @@
 package com.example.activities
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        uiFabHome.setOnClickListener { view ->
+        uiFabHome.setOnClickListener {
             if(!isFabOpen)
                 showFabMenuWithAnimation()
             else closeFabMenuWithAnimation()
@@ -54,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         listAdapter.notifyDataSetChanged()
     }
 
+    @SuppressLint("InflateParams")
     private fun showDialogToGetInput(name: String, valueUnit: String) {
         val builder = AlertDialog.Builder(this)
         val inflater = layoutInflater
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         val dialogLayout = inflater.inflate(R.layout.dailog_new_activity, null)
         val editText  = dialogLayout.findViewById<EditText>(R.id.uiEtInput)
         builder.setView(dialogLayout)
-        builder.setPositiveButton("ADD") { dialogInterface, i ->
+        builder.setPositiveButton("ADD") { _, _ ->
             if (editText.text.trim().isNotBlank()) {
                 saveAndUpdateNewActivitiesToDB(ActivitiesDbModel(
                     name = name,
@@ -71,6 +71,8 @@ class MainActivity : AppCompatActivity() {
                 listAdapter.activitiesList = getActivitiesFromDb().toMutableList()
                 listAdapter.notifyDataSetChanged()
             }
+            if(name == getString(R.string.str_name_hydration))
+                saveAndUpdateReminderTimeToDB(System.currentTimeMillis() + (60*60*1000))
         }
         builder.show()
     }
