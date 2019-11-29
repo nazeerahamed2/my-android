@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="4dp">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/uiIvIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_meal"
+        app:layout_constraintBottom_toBottomOf="@+id/uiTvDate"
+        app:layout_constraintEnd_toStartOf="@+id/uiTvName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/uiTvName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/uiTvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        tools:text="Meal"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/uiIvIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/uiTvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        tools:text="2019-11-28"
+        app:layout_constraintStart_toStartOf="@+id/uiTvName"
+        app:layout_constraintTop_toBottomOf="@+id/uiTvName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/uiTvValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="1500.0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/uiTvDate"
+        app:layout_constraintEnd_toStartOf="@+id/uiTvUnit"
+        app:layout_constraintTop_toTopOf="@+id/uiTvName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/uiTvUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_value_cal"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/uiTvValue"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uiTvDate" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Activities</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_name_hydration">Hydration</string>
+    <string name="str_name_meal">Meal</string>
+    <string name="str_name_sleep">Sleep</string>
+    <string name="str_name_height">Height</string>
+    <string name="str_name_weight">Weight</string>
+    <string name="str_name_workout">Workout</string>
+    <string name="str_create_new">Create New Activity</string>
+    <string name="str_value_cal">cal</string>
+    <string name="str_value_mins">mins</string>
+    <string name="str_value_cm">cm</string>
+    <string name="str_value_kg">kg</string>
+    <string name="str_value_ml">ml</string>
+    <string name="str_enter_value">Enter the value</string>
+    <string name="str_reminder">Reminder</string>
+    <string name="str_remind_hydration">It\'s time to take the water</string>
+</resources>
